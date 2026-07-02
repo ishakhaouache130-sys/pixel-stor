@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pixel Gaming | عالم الألعاب</title>
+    <title>Pixel Gaming | تحميل أفضل الألعاب</title>
     <style>
         /* تصميم عام للموقع (Dark Theme) */
         * {
@@ -25,13 +25,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 3px solid #ff4757;
+            border-bottom: 3px solid #00efff;
         }
 
         .logo {
             font-size: 24px;
             font-weight: bold;
-            color: #ff4757;
+            color: #00efff;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -49,19 +49,20 @@
         }
 
         nav a:hover {
-            color: #ff4757;
+            color: #00efff;
         }
 
         /* القسم الرئيسي (البانر) */
         .hero {
             text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1538481199705-c710c4e965fc?blur=5') no-repeat center center/cover;
+            padding: 80px 20px;
+            background: linear-gradient(rgba(18, 18, 20, 0.8), #121214), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1000') no-repeat center center/cover;
         }
 
         .hero h1 {
-            font-size: 40px;
+            font-size: 42px;
             margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(0, 239, 255, 0.5);
         }
 
         .hero p {
@@ -70,7 +71,7 @@
             margin-bottom: 20px;
         }
 
-        /* شبكة الألعاب */
+        /* شبكة الألعاب للتحميل */
         .games-container {
             padding: 40px 50px;
         }
@@ -78,125 +79,103 @@
         .section-title {
             font-size: 28px;
             margin-bottom: 30px;
-            border-right: 5px solid #ff4757;
+            border-right: 5px solid #00efff;
             padding-right: 15px;
         }
 
         .games-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
         .game-card {
             background-color: #1a1a1e;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
             border: 1px solid #2d2d35;
+            display: flex;
+            flex-direction: column;
         }
 
         .game-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(255, 71, 87, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 239, 255, 0.15);
         }
 
-        .game-img {
+        /* غلاف اللعبة */
+        .game-cover {
             width: 100%;
-            height: 180px;
-            background-color: #2d2d35;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 50px;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #00efff;
+            color: #000;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 5px;
         }
 
         .game-info {
             padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .game-info h3 {
-            margin-bottom: 10px;
-            font-size: 20px;
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+
+        .game-meta {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 12px;
         }
 
         .game-info p {
             color: #aaa;
             font-size: 14px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            flex-grow: 1;
         }
 
-        .play-btn {
-            display: inline-block;
-            background-color: #ff4757;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
+        /* أزرار التحميل */
+        .download-btn {
+            display: block;
+            background: linear-gradient(45deg, #00efff, #0088ff);
+            color: #000;
+            padding: 12px 20px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
-            transition: 0.3s;
             text-align: center;
-            width: 100%;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 239, 255, 0.2);
         }
 
-        .play-btn:hover {
-            background-color: #e84118;
-        }
-
-        /* نافذة اللعبة المنبثقة (Pop-up) */
-        .game-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.9);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .modal-content {
-            width: 80%;
-            max-width: 800px;
-            height: 500px;
-            background: #000;
-            border: 2px solid #ff4757;
-            border-radius: 10px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            color: white;
-            font-size: 30px;
-            cursor: pointer;
-            background: none;
-            border: none;
-        }
-
-        .close-btn:hover {
-            color: #ff4757;
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+        .download-btn:hover {
+            background: linear-gradient(45deg, #0088ff, #00efff);
+            transform: scale(1.02);
         }
 
         /* الفوتر */
         footer {
             background-color: #0e0e10;
             text-align: center;
-            padding: 20px;
-            margin-top: 40px;
+            padding: 25px;
+            margin-top: 60px;
             font-size: 14px;
             color: #666;
             border-top: 1px solid #1a1a1e;
@@ -210,89 +189,69 @@
         <div class="logo">Pixel <span>Gaming</span></div>
         <nav>
             <a href="#">الرئيسية</a>
-            <a href="#">ألعاب أكشن</a>
-            <a href="#">ألعاب ذكاء</a>
-            <a href="#">من نحن</a>
+            <a href="#">ألعاب كمبيوتر</a>
+            <a href="#">ألعاب هواتف</a>
+            <a href="#">طلب لعبة</a>
         </nav>
     </header>
 
     <!-- البانر الترحيبي -->
     <section class="hero">
-        <h1>مرحباً بك في Pixel Gaming</h1>
-        <p>المنصة الأفضل للعب ألعاب المتصفح المجانية بدون تحميل!</p>
+        <h1>حمل أفضل الألعاب مجاناً</h1>
+        <p>روابط تحميل مباشرة وآمنة لأحدث ألعاب الكمبيوتر والأندرويد/آيفون</p>
     </section>
 
     <!-- شبكة الألعاب -->
     <main class="games-container">
-        <h2 class="section-title">الألعاب المقترحة</h2>
+        <h2 class="section-title">أحدث الألعاب المضافة</h2>
         
         <div class="games-grid">
-            <!-- اللعبة الأولى -->
+            <!-- اللعبة الأولى: كمبيوتر -->
             <div class="game-card">
-                <div class="game-img">🐍</div>
+                <div class="game-cover" style="background-image: url('https://images.unsplash.com/photo-1553481187-be93c21490a9?q=80&w=500');">
+                    <span class="badge">PC / كمبيوتر</span>
+                </div>
                 <div class="game-info">
-                    <h3>لعبة الثعبان الكلاسيكية</h3>
-                    <p>العب لعبة الثعبان الشهيرة وحطم الأرقام القياسية.</p>
-                    <button class="play-btn" onclick="openGame('https://mclassic.github.io/Snake/')">العب الآن</button>
+                    <h3>سباق السيارات السريع</h3>
+                    <div class="game-meta">الحجم: 2.4 GB | التحديث: 2026</div>
+                    <p>خض تجربة سباق سيارات تحبس الأنفاس برسوميات عالية الدقة وعشرات السيارات الرياضية العالمية القابلة للتعديل بالكامل.</p>
+                    <!-- ضع رابط التحميل الفعلي مكان علامة # بالأسفل -->
+                    <a href="#" class="download-btn" target="_blank">صفحة التحميل المباشر</a>
                 </div>
             </div>
 
-            <!-- اللعبة الثانية -->
+            <!-- اللعبة الثانية: هاتف -->
             <div class="game-card">
-                <div class="game-img">🧩</div>
+                <div class="game-cover" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=500');">
+                    <span class="badge">Mobile / هواتف</span>
+                </div>
                 <div class="game-info">
-                    <h3>لعبة 2048</h3>
-                    <p>اجمع المربعات المتشابهة لتصل إلى الرقم 2048.</p>
-                    <button class="play-btn" onclick="openGame('https://gabrielecirulli.github.io/2048/')">العب الآن</button>
+                    <h3>مغامرة المحارب السري</h3>
+                    <div class="game-meta">الحجم: 450 MB | النظام: أندرويد & iOS</div>
+                    <p>لعبة أكشن وتقمص أدوار مميزة للهواتف الذكية. قاتل الوحوش، اجمع الدروع المطورة، وأنقذ مملكتك من دمار وشيك.</p>
+                    <a href="#" class="download-btn" target="_blank">صفحة التحميل المباشر</a>
                 </div>
             </div>
 
-            <!-- اللعبة الثالثة -->
+            <!-- اللعبة الثالثة: كمبيوتر -->
             <div class="game-card">
-                <div class="game-img">🚀</div>
+                <div class="game-cover" style="background-image: url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=500');">
+                    <span class="badge">PC / كمبيوتر</span>
+                </div>
                 <div class="game-info">
-                    <h3>حرب الفضاء</h3>
-                    <p>دمر سفن الأعداء وحافظ على سلامة مركبتك الفضائية.</p>
-                    <button class="play-btn" onclick="openGame('https://playcanv.as/p/2OlkUaxF/')">العب الآن</button>
+                    <h3>بناء وادي المستقبل</h3>
+                    <div class="game-meta">الحجم: 1.2 GB | التحديث: أحدث إصدار</div>
+                    <p>لعبة استراتيجية لبناء وإدارة المدن المستقبلية. قم بإدارة الموارد، توليد الطاقة النظيفة، وحل مشكلات السكان الذكية.</p>
+                    <a href="#" class="download-btn" target="_blank">صفحة التحميل المباشر</a>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- نافذة تشغيل الألعاب المنبثقة -->
-    <div class="game-modal" id="gameModal">
-        <button class="close-btn" onclick="closeGame()">&times; إغلاق اللعبة</button>
-        <div class="modal-content">
-            <iframe id="gameFrame" src=""></iframe>
-        </div>
-    </div>
-
     <!-- الفوتر -->
     <footer>
-        <p>&copy; 2026 Pixel Gaming. جميع الحقوق محفوظة.</p>
+        <p>&copy; 2026 Pixel Gaming. جميع الحقوق محفوظة لشبكة تحميل الألعاب.</p>
     </footer>
 
-    <!-- نظام تشغيل الألعاب عبر الـ JS -->
-    <script>
-        const modal = document.getElementById('gameModal');
-        const iframe = document.getElementById('gameFrame');
-
-        function openGame(url) {
-            iframe.src = url;
-            modal.style.display = 'flex';
-        }
-
-        function closeGame() {
-            modal.style.display = 'none';
-            iframe.src = ''; // لإيقاف صوت اللعبة عند الإغلاق
-        }
-
-        // إغلاق اللعبة عند الضغط خارج إطار اللعبة
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                closeGame();
-            }
-        }
-    </script>
 </body>
 </html>
