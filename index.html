@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pixel Gaming | ???? ???????</title>
+    <title>Pixel Gaming | عالم الألعاب</title>
     <style>
-        /* ????? ??? ?????? (Dark Theme) */
+        /* تصميم عام للموقع (Dark Theme) */
         * {
             margin: 0;
             padding: 0;
@@ -18,7 +18,7 @@
             color: #ffffff;
         }
 
-        /* ?????? (???? ??????) */
+        /* الهيدر (شريط التنقل) */
         header {
             background-color: #1a1a1e;
             padding: 20px 50px;
@@ -52,7 +52,7 @@
             color: #ff4757;
         }
 
-        /* ????? ??????? (??????) */
+        /* القسم الرئيسي (البانر) */
         .hero {
             text-align: center;
             padding: 60px 20px;
@@ -70,7 +70,7 @@
             margin-bottom: 20px;
         }
 
-        /* ???? ??????? */
+        /* شبكة الألعاب */
         .games-container {
             padding: 40px 50px;
         }
@@ -144,7 +144,7 @@
             background-color: #e84118;
         }
 
-        /* ????? ?????? ???????? (Pop-up) */
+        /* نافذة اللعبة المنبثقة (Pop-up) */
         .game-modal {
             display: none;
             position: fixed;
@@ -191,7 +191,7 @@
             border: none;
         }
 
-        /* ?????? */
+        /* الفوتر */
         footer {
             background-color: #0e0e10;
             text-align: center;
@@ -205,74 +205,74 @@
 </head>
 <body>
 
-    <!-- ?????? -->
+    <!-- الهيدر -->
     <header>
         <div class="logo">Pixel <span>Gaming</span></div>
         <nav>
-            <a href="#">????????</a>
-            <a href="#">????? ????</a>
-            <a href="#">????? ????</a>
-            <a href="#">?? ???</a>
+            <a href="#">الرئيسية</a>
+            <a href="#">ألعاب أكشن</a>
+            <a href="#">ألعاب ذكاء</a>
+            <a href="#">من نحن</a>
         </nav>
     </header>
 
-    <!-- ?????? ???????? -->
+    <!-- البانر الترحيبي -->
     <section class="hero">
-        <h1>?????? ?? ?? Pixel Gaming</h1>
-        <p>?????? ?????? ???? ????? ??????? ???????? ???? ?????!</p>
+        <h1>مرحباً بك في Pixel Gaming</h1>
+        <p>المنصة الأفضل للعب ألعاب المتصفح المجانية بدون تحميل!</p>
     </section>
 
-    <!-- ???? ??????? -->
+    <!-- شبكة الألعاب -->
     <main class="games-container">
-        <h2 class="section-title">??????? ????????</h2>
+        <h2 class="section-title">الألعاب المقترحة</h2>
         
         <div class="games-grid">
-            <!-- ?????? ?????? -->
+            <!-- اللعبة الأولى -->
             <div class="game-card">
-                <div class="game-img">??</div>
+                <div class="game-img">🐍</div>
                 <div class="game-info">
-                    <h3>???? ??????? ??????????</h3>
-                    <p>???? ???? ??????? ??????? ???? ??????? ????????.</p>
-                    <button class="play-btn" onclick="openGame('https://mclassic.github.io/Snake/')">???? ????</button>
+                    <h3>لعبة الثعبان الكلاسيكية</h3>
+                    <p>العب لعبة الثعبان الشهيرة وحطم الأرقام القياسية.</p>
+                    <button class="play-btn" onclick="openGame('https://mclassic.github.io/Snake/')">العب الآن</button>
                 </div>
             </div>
 
-            <!-- ?????? ??????? -->
+            <!-- اللعبة الثانية -->
             <div class="game-card">
-                <div class="game-img">??</div>
+                <div class="game-img">🧩</div>
                 <div class="game-info">
-                    <h3>???? 2048</h3>
-                    <p>???? ???????? ????????? ???? ??? ????? 2048.</p>
-                    <button class="play-btn" onclick="openGame('https://gabrielecirulli.github.io/2048/')">???? ????</button>
+                    <h3>لعبة 2048</h3>
+                    <p>اجمع المربعات المتشابهة لتصل إلى الرقم 2048.</p>
+                    <button class="play-btn" onclick="openGame('https://gabrielecirulli.github.io/2048/')">العب الآن</button>
                 </div>
             </div>
 
-            <!-- ?????? ??????? -->
+            <!-- اللعبة الثالثة -->
             <div class="game-card">
-                <div class="game-img">??</div>
+                <div class="game-img">🚀</div>
                 <div class="game-info">
-                    <h3>??? ??????</h3>
-                    <p>??? ??? ??????? ????? ??? ????? ?????? ????????.</p>
-                    <button class="play-btn" onclick="openGame('https://playcanv.as/p/2OlkUaxF/')">???? ????</button>
+                    <h3>حرب الفضاء</h3>
+                    <p>دمر سفن الأعداء وحافظ على سلامة مركبتك الفضائية.</p>
+                    <button class="play-btn" onclick="openGame('https://playcanv.as/p/2OlkUaxF/')">العب الآن</button>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- ????? ????? ??????? ???????? -->
+    <!-- نافذة تشغيل الألعاب المنبثقة -->
     <div class="game-modal" id="gameModal">
-        <button class="close-btn" onclick="closeGame()">&times; ????? ??????</button>
+        <button class="close-btn" onclick="closeGame()">&times; إغلاق اللعبة</button>
         <div class="modal-content">
             <iframe id="gameFrame" src=""></iframe>
         </div>
     </div>
 
-    <!-- ?????? -->
+    <!-- الفوتر -->
     <footer>
-        <p>&copy; 2026 Pixel Gaming. ???? ?????? ??????.</p>
+        <p>&copy; 2026 Pixel Gaming. جميع الحقوق محفوظة.</p>
     </footer>
 
-    <!-- ???? ????? ??????? ??? ??? JS -->
+    <!-- نظام تشغيل الألعاب عبر الـ JS -->
     <script>
         const modal = document.getElementById('gameModal');
         const iframe = document.getElementById('gameFrame');
@@ -284,10 +284,10 @@
 
         function closeGame() {
             modal.style.display = 'none';
-            iframe.src = ''; // ?????? ??? ?????? ??? ???????
+            iframe.src = ''; // لإيقاف صوت اللعبة عند الإغلاق
         }
 
-        // ????? ?????? ??? ????? ???? ???? ??????
+        // إغلاق اللعبة عند الضغط خارج إطار اللعبة
         window.onclick = function(event) {
             if (event.target == modal) {
                 closeGame();
