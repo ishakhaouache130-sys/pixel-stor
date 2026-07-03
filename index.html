@@ -213,6 +213,29 @@
             border-top: 1px solid #1a1a1e;
         }
 
+        /* تصميم قسم طلب الألعاب الجديد في الأسفل */
+        .request-link-container {
+            margin-bottom: 20px;
+        }
+
+        .request-game-btn {
+            color: #00efff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: 0.3s;
+            border: 1px dashed #00efff;
+            padding: 8px 20px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .request-game-btn:hover {
+            background-color: #00efff;
+            color: #000;
+            box-shadow: 0 0 10px rgba(0, 239, 255, 0.4);
+        }
+
         .counter-box {
             margin-top: 15px;
             font-size: 12px;
@@ -233,7 +256,7 @@
             <a href="#">الرئيسية</a>
             <a href="#">ألعاب كمبيوتر</a>
             <a href="#">ألعاب هواتف</a>
-            <a href="#">طلب لعبة</a>
+            <a href="request.html">طلب لعبة</a>
         </nav>
     </header>
 
@@ -322,6 +345,10 @@
     </main>
 
     <footer>
+        <div class="request-link-container">
+            <a href="request.html" class="request-game-btn">رابط طلب الألعاب  pedido</a>
+        </div>
+
         <p>&copy; 2026 Pixel Gaming. جميع الحقوق محفوظة لشبكة تحميل الألعاب.</p>
         
         <div class="counter-box">
